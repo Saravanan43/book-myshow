@@ -1,0 +1,14 @@
+Drive:
+npx create-react-app project-name
+open vscode in cmd - code .
+stop server- ctrl C
+
+install tailwind- got to its document for react
+
+layout first approach - example take utube it has top nabar and side navbar and main content in the middle bt when we click any video main content will only get updated. if we create a separate navbar for that video pg it will take some time to render. so create default layout and change main content accordingly.
+
+HOC- if we have to add anything in our preexisting component it is used. it returns a component
+
+HOC binds our default layout and dynamic components.default layout might be used for every pgs and it will not render again nd again. add children props so it will also render along with it..in app js call hoc and pass the page to be rendered
+
+Navba
