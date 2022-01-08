@@ -1,22 +1,24 @@
 import React from "react";
 import Slider from "react-slick";
+import { PrevArrow,NextArrow } from "./arrows";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+
 
 const HeroSlider = () =>{
    const setting ={
        arrows:true,
        dots:true,
        infinite:true,
-       speed: 1000,
+       speed: 500,
        slidesToShow: 1,
        slidesToScroll: 1,
        autoplay: true,
-       autoplaySpeed: 1000,
+       prevArrow:<PrevArrow/>,
+       nextArrow: <NextArrow />,
    };
    const settingsLg = {
         arrows: true,
+       // autoplay:true,
         centerMode: true,
         centerPadding: '200px',
         dots:true,
@@ -24,10 +26,11 @@ const HeroSlider = () =>{
         slidesToShow: 1,
         slidesToScroll: 1,
         autoplay: true,
-        autoplaySpeed: 1000,
-        touchThreshold: 1000,
+        prevArrow:<PrevArrow/>,
+        nextArrow: <NextArrow/>,
+        
       };
-      const images=["https://images.unsplash.com/photo-1629221220303-4eca4505b38f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80","https://images.unsplash.com/photo-1631796541242-16c2137c085d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80","https://images.unsplash.com/photo-1591693133219-fc741f184b3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80","https://images.unsplash.com/photo-1641118678131-4ec197b260f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80","https://images.unsplash.com/photo-1641392924934-17fd6c260a24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=412&q=80"]
+      const images=["https://images.unsplash.com/photo-1629221220303-4eca4505b38f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=464&q=80","https://images.unsplash.com/photo-1631796541242-16c2137c085d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=465&q=80","https://images.unsplash.com/photo-1591693133219-fc741f184b3e?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80","https://images.unsplash.com/photo-1641118678131-4ec197b260f0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=435&q=80","https://images.unsplash.com/photo-1641392924934-17fd6c260a24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=412&q=80"];
     return(
         <>
         <div className="hidden lg:block">

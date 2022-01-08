@@ -1,12 +1,14 @@
 import { Route} from "react-router-dom";
 import React from "react";
 import DefaultHOC from "./HOC/Default.HOC";
-import Temp from "./components/temp";
+import HomePage from "./Pages/Homepage";
+
+
 function App() {
  
   return(
     <>
-    <DefaultHOC exact path="/"  component={Temp}/>
+    <DefaultHOC exact path="/"  component={HomePage}/>
    
     </>
   );

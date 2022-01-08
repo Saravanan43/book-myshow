@@ -92,7 +92,7 @@ const Navbar = () =>{
                       
                   </div>
                   <div className="hidden lg:flex">
-                      {<NavLg/>}
+                      <NavLg/>
                       
                   </div>
               </nav>
