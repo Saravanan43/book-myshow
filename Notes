@@ -11,4 +11,19 @@ HOC- if we have to add anything in our preexisting component it is used. it retu
 
 HOC binds our default layout and dynamic components.default layout might be used for every pgs and it will not render again nd again. add children props so it will also render along with it..in app js call hoc and pass the page to be rendered
 
-Navba
+Even a function a file canbe considered as a component.
+
+Navbar- Made main navbar component and gave media queries to render the matching device size component
+
+React Slick add the css file in index.js globally
+
+herocaroousal- two slider for lg and ms,sm. comes under default layout.
+
+Homapage- header(navbar),dynamic(Entertainment,premier) content and footer
+
+.
+
+Homepage-> consists of Entertainment     posterslider->Outdoor events,Online streaming.
+
+Entertainment,Outdoor event,oonline streaming- Entertainment component passes the slider and images are rendered from EntertainmentCard
+

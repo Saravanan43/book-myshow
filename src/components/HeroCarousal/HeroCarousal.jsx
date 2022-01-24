@@ -7,7 +7,6 @@ import { PrevArrow,NextArrow } from "./arrows";
 const HeroSlider = () =>{
    const setting ={
        arrows:true,
-       dots:true,
        infinite:true,
        speed: 500,
        slidesToShow: 1,
@@ -20,8 +19,7 @@ const HeroSlider = () =>{
         arrows: true,
        // autoplay:true,
         centerMode: true,
-        centerPadding: '200px',
-        dots:true,
+        centerPadding: '200px',/*Makes one pic at center*/ 
         infinite: true,
         slidesToShow: 1,
         slidesToScroll: 1,

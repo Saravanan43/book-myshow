@@ -9,7 +9,6 @@ const NavSm= ()=>{
           <div>
               <h6 className="text-2xl font-bold">It All Starts Here!</h6>
               <span className="text-gray-400 text-sm flex items-center">
-              Chennai
               <BiChevronRight/>
               </span>
           </div>
@@ -20,26 +19,7 @@ const NavSm= ()=>{
       </>
     );
 };
-const NavMd= ()=>{
-    return(
-        <>
-        
-            <div className="w-full flex gap-2 items-center bg-white px-3 py-2 rounded-md md:container md:mx-auto">
-                <div>
-                <BiSearch/>
-                </div>
-                
-                <div className="w-full">
-                 <input type="search"
-                    className="w-full bg-transparent border-none focus:outline-none"
-                    placeholder="Search for Movies,Plays,Sports,Events and Activities"
-                />
-                </div>
-            </div>
-        
-        </>
-    );
-};
+
 const NavLg= ()=>{
     return(
          <>
@@ -77,15 +57,15 @@ const NavLg= ()=>{
 };
 
 
-const Navbar = () =>{
+const MovieNavbar = () =>{
       return(
           <>
-              <nav className="bg-navclr-700 p-4">
+              <nav className="absolute inset-x-0 z-30 bg-opacity-30  backdrop-blur-lg  lg:bg-navclr-700 p-4">
                  <div className="md:hidden">
                     <NavSm/>
                  </div>
-                  <div className="hidden md:flex lg:hidden"> /* hidden-hide sm device*/ 
-                      <NavMd/>
+                  <div className="hidden md:block lg:hidden">
+                      <NavSm/>
                       
                   </div>
                   <div className="hidden lg:flex">
@@ -97,4 +77,4 @@ const Navbar = () =>{
       );
 };
 
-export default Navbar;
+export default MovieNavbar;
