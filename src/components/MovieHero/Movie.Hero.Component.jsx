@@ -1,7 +1,9 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import MovieInfor from './Movie.info'
-
+import {MovieContext} from '../../context/movie.context';
 function MovieHero() {
+
+    const {movie}=useContext(MovieContext);
     return (
         <>
             <div>
@@ -14,7 +16,7 @@ function MovieHero() {
                      </div>
                      
                      <img 
-                     src='https://in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/pushpa--the-rise-et00129538-08-12-2021-01-21-46.jpg'
+                     src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                      alt=''
                      className='w-full h-full'
                      />
@@ -30,7 +32,7 @@ function MovieHero() {
                     </div>
                     
                     <img 
-                     src='https://in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/pushpa--the-rise-et00129538-08-12-2021-01-21-46.jpg'
+                     src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                      alt=''
                      className='w-full h-full'
                      />
@@ -47,7 +49,7 @@ function MovieHero() {
                        <div className='absolute  z-30 top-24 left-24 flex items-center gap-10'>
                         <div className='w-64 h-96'>
                         <img 
-                        src="https://in.bmscdn.com/iedb/movies/images/mobile/thumbnail/xlarge/pushpa--the-rise-et00129538-08-12-2021-01-21-46.jpg"
+                        src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
                         className='w-full h-full rounded-xl'
                         />
                         </div>
@@ -55,7 +57,7 @@ function MovieHero() {
                       </div>
                    {/*background img */}
                      <img 
-                     src='https://in.bmscdn.com/iedb/movies/images/mobile/listing/xxlarge/pushpa--the-rise-et00129538-08-12-2021-01-21-46.jpg'
+                     src={`https://image.tmdb.org/t/p/original${movie.backdrop_path}`}
                      alt=''
                      className='w-full h-full'
                      />

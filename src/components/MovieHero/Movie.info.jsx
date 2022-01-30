@@ -1,6 +1,9 @@
-import React from 'react';
-
+import React,{useContext} from 'react';
+import { MovieContext } from '../../context/movie.context';
 const MovieInfo = () => {
+  const {movie}=useContext(MovieContext);
+  const genres=movie.genres && movie.genres.map(({name})=>name).join(", ");
+
   return( 
   <>
    <div className='flex flex-col gap-3  lg:gap-8 '>
@@ -16,16 +19,16 @@ const MovieInfo = () => {
     </div>
 
     <div>
-        <h1 className='text-white font-bold text-5xl hidden lg:block md:px-4'>Pushpa</h1>
+        <h1 className='text-white font-bold text-5xl hidden lg:block md:px-4'>{movie.original_title}</h1>
     </div>
     
     <div className='flex flex-col-reverse lg:flex-col gap-4'>
     <div className='text-sm text-white font-light flex flex-col gap-2 md:px-4'>
-    <h1 >4K &bull; English &bull; Action </h1>
-    <h1>1h 53m &bull; Action,Sci-fi &bull; 13+</h1>
+    <h1 >4K &bull; {movie.original_language} </h1>
+    <h1>{(movie.runtime/60).toFixed(2)} &bull; {genres} &bull; 13+</h1>
     </div>
 
-    <div className='flex gap-4 text-white text-md font-bold md:w-screen lg:w-full md:px-4'>{/*button aloe takes the width */}
+    <div className='flex gap-4 text-white text-md font-bold md:w-screen lg:w-60 md:px-4'>{/*button aloe takes the width */}
       <button className="bg-red-600 rounded-md w-full py-2 ">Buy</button>
       <button className="bg-red-600 rounded-md w-full py-2 ">Rent</button>
     </div>

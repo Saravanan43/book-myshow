@@ -1,13 +1,17 @@
-import React from "react";
+import React, { useContext } from "react";
 import {BiChevronRight,BiSearch} from "react-icons/bi";
 import {FaChevronCircleDown} from "react-icons/fa";
 import {GiHamburgerMenu} from "react-icons/gi";
+import { MovieContext } from "../../context/movie.context";
+
 const NavSm= ()=>{
+    const  {movie}  = useContext(MovieContext);
+    
     return(
       <>
         <div className="text-white items-center flex justify-between">
           <div>
-              <h6 className="text-2xl font-bold">It All Starts Here!</h6>
+              <h6 className="text-2xl font-bold">{movie.original_title}</h6>
               <span className="text-gray-400 text-sm flex items-center">
               <BiChevronRight/>
               </span>

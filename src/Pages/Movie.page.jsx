@@ -1,9 +1,14 @@
 import { FaCcVisa, FaCcApplePay } from "react-icons/fa";
-import React from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import Crew from "../components/Crew/Crew.component";
 import MovieHero from '../components/MovieHero/Movie.Hero.Component';
 import PosterSlider from "../components/Poster.Slider/PosterSlider";
 import TempImages from "../components/settings/TempImages.config";
+import {MovieContext} from "../context/movie.context";
+import axios from "axios";
+import { useParams } from "react-router-dom";
+import Slider from "react-slick";
+
 
 function MoviePage() {
     const settings ={
@@ -38,6 +43,74 @@ function MoviePage() {
             }
           ],
     }
+    
+    const settingsCast ={
+      autoplay:false,
+      infinite:false,
+      slidesToShow: 5,
+      slidesToScroll: 5,
+      responsive: [
+          {
+            breakpoint: 1024,
+            settings: {
+              slidesToShow: 5,
+              slidesToScroll: 5,
+              infinite: true,
+              dots: true
+            }
+          },
+          {
+            breakpoint: 600,
+            settings: {
+              slidesToShow: 3,
+              slidesToScroll: 3,
+              initialSlide: 2
+            }
+          },
+          {
+            breakpoint: 480,
+            settings: {
+              slidesToShow: 2,
+              slidesToScroll: 2
+            }
+          }
+        ],
+  }
+  // Cast API  
+  const {movie}=useContext(MovieContext);
+    const [cast,setCast]=useState([]);
+    const {isbn}=useParams();
+    useEffect(()=>{
+        const getCast= async() =>{
+          const crewDetails= await axios.get(`/movie/${isbn}/credits`);
+          setCast(crewDetails.data.cast);
+        }
+        getCast();
+    },[]);
+   
+   // similiar Movies API
+   const [similiarMovie,setSimiliarMovie]=useState([]);
+   
+   useEffect(()=>{
+    const getMovieData = async() => {
+      const movieData=await axios.get(`/movie/${isbn}/similar`);
+      setSimiliarMovie(movieData.data.results);
+    }
+    getMovieData();
+   },[]);
+
+   //recommended movies api
+
+   const [recMovie,setRecMovie]=useState([]);
+   
+   useEffect(()=>{
+    const getRecMovieData = async() => {
+      const movieData=await axios.get(`/movie/${isbn}/recommendations`);
+      setRecMovie(movieData.data.results);
+    }
+    getRecMovieData();
+   },[]);
+
     return (
         <>
             <MovieHero/>
@@ -46,7 +119,7 @@ function MoviePage() {
             <div className='container my-5 px-4 items-start lg:w-2/3 lg:ml-20'>
                 <div className='flex flex-col gap-3'>
                     <h1  className='font-bold text-2xl'>About the movie</h1>
-                    <p>Based on the smuggling of red sander trees in Seshachalam forest, Andhra Pradesh, Pushpa tells the story of a lorry driver who is part of the illegal business.</p>
+                    <p>{movie.overview}</p>
                 </div>
                
                 <div className='my-8'>
@@ -82,19 +155,22 @@ function MoviePage() {
                     <hr/>
                 </div>
 
-                <div className="">
+                <div className="flex flex-col gap-3">
                     <h1 className="font-bold text-2xl">Cast</h1>
-                    <div className="flex flex-wrap items-start gap-4 mt-4">
-                        <Crew img="https://in.bmscdn.com/iedb/artist/images/website/poster/large/allu-arjun-125-03-10-2016-01-55-06.jpg" name="aaa" role="bbb"/>
-                        <Crew img="https://in.bmscdn.com/iedb/artist/images/website/poster/large/allu-arjun-125-03-10-2016-01-55-06.jpg" name="aaa" role="bbb"/>
-                        <Crew img="https://in.bmscdn.com/iedb/artist/images/website/poster/large/allu-arjun-125-03-10-2016-01-55-06.jpg" name="aaa" role="bbb"/>
-                        <Crew img="https://in.bmscdn.com/iedb/artist/images/website/poster/large/allu-arjun-125-03-10-2016-01-55-06.jpg" name="aaa" role="bbb"/>
-                    </div>
+                    <Slider {...settingsCast}>
+                        {
+                          cast.map((i)=>
+                        (i.profile_path)?
+                        <Crew img={`https://image.tmdb.org/t/p/original${i.profile_path}`} name={i.name} role={i.character}/>
+                        :null
+                          )
+                        }
+                    </Slider>
                 </div>
 
                 <div>
                   <div className=" flex flex-col gap-3 mt-1">
-                   <PosterSlider images={TempImages} title="Outdoor Events" isDark={false} configSettings={settings} />
+                   <PosterSlider images={similiarMovie} title="You Also Might Like" isDark={false} configSettings={settings} />
                   </div>
 
                 </div>
@@ -105,7 +181,7 @@ function MoviePage() {
 
                 <div>
                   <div className=" flex flex-col gap-3 mt-1">
-                   <PosterSlider images={TempImages} title="BMS Exclusive" isDark={false} configSettings={settings} />
+                   <PosterSlider images={recMovie} title="Recommended Movies" isDark={false} configSettings={settings} />
                   </div>
 
                 </div>

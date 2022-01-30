@@ -27,3 +27,7 @@ Homepage-> consists of Entertainment     posterslider->Outdoor events,Online str
 
 Entertainment,Outdoor event,oonline streaming- Entertainment component passes the slider and images are rendered from EntertainmentCard
 
+route helps to have unique subutl and pages. Link used like anchor tag
+
+axios-npm i axios. it used as fetch to call the api.Set the defaults in app.js inorder to avoid the baseurl to type again in api calling. use separate fn in useeffect to avoid race condition.
+

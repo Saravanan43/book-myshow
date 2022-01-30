@@ -7,10 +7,15 @@ import App from './App';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import MovieProvider from "./context/movie.context";
+
+
 ReactDOM.render(
   <React.StrictMode>
   <BrowserRouter>
+  <MovieProvider>
     <App />
+  </MovieProvider>
   </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
