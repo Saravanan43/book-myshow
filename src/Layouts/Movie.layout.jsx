@@ -14,7 +14,7 @@ const MovieLayout = (props) =>{
       setMovie(getMovieData.data);
     };
     requestMovie();
-  }, []);
+  }, [isbn]);
 
     return(
         <>

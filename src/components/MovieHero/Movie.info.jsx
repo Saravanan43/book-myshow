@@ -1,11 +1,27 @@
-import React,{useContext} from 'react';
+import React,{useContext,useState} from 'react';
 import { MovieContext } from '../../context/movie.context';
-const MovieInfo = () => {
+
+import PaymentModal from '../Payment/Payment.Modal';
+  const MovieInfo = () => {
   const {movie}=useContext(MovieContext);
   const genres=movie.genres && movie.genres.map(({name})=>name).join(", ");
+  
+  const [open,setOpen]=useState(false);
+  const [price,setPrice]=useState(0);
+
+  const rentMovies =()=>{
+     setOpen(true);
+     setPrice(149);
+  }
+
+  const buyMovies =()=>{
+    setOpen(true);
+    setPrice(549);
+ }
 
   return( 
   <>
+  <PaymentModal isOpen={open} setIsOpen={setOpen} price={price}/>
    <div className='flex flex-col gap-3  lg:gap-8 '>
     <div className='flex items-center gap-4 md:px-4'>
          <div className="w-40 h-8">
@@ -29,8 +45,8 @@ const MovieInfo = () => {
     </div>
 
     <div className='flex gap-4 text-white text-md font-bold md:w-screen lg:w-60 md:px-4'>{/*button aloe takes the width */}
-      <button className="bg-red-600 rounded-md w-full py-2 ">Buy</button>
-      <button className="bg-red-600 rounded-md w-full py-2 ">Rent</button>
+      <button className="bg-red-600 rounded-md w-full py-2 " onClick={buyMovies}>Buy</button>
+      <button className="bg-red-600 rounded-md w-full py-2 " onClick={rentMovies}>Rent</button>
     </div>
     </div>
     </div>

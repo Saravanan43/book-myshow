@@ -97,7 +97,7 @@ function MoviePage() {
       setSimiliarMovie(movieData.data.results);
     }
     getMovieData();
-   },[]);
+   },[isbn]);
 
    //recommended movies api
 
@@ -109,7 +109,7 @@ function MoviePage() {
       setRecMovie(movieData.data.results);
     }
     getRecMovieData();
-   },[]);
+   },[isbn]);
 
     return (
         <>
