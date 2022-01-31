@@ -2,6 +2,7 @@ import React from "react";
 import {BiChevronRight,BiSearch} from "react-icons/bi";
 import {FaChevronCircleDown} from "react-icons/fa";
 import {GiHamburgerMenu} from "react-icons/gi";
+import {Link} from "react-router-dom";
 const NavSm= ()=>{
     return(
       <>
@@ -45,11 +46,13 @@ const NavLg= ()=>{
          <>
              <div className="container lg-auto px-4 flex justify-between items-center">
              <div className="flex items-center w-1/2 gap-3 ml-9">
+                  
                   <div className="w-10 h-10">
-                      <img src="https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png"
+                     <Link to = {`/`}> <img src="https://i.ibb.co/zPBYW3H/imgbin-bookmyshow-office-android-ticket-png.png"
                        className="w-full h-10"
-                      />
+                      /></Link>
                   </div>
+                  
                   <div className='w-full h-9 flex bg-white items-center gap-3 px-3 py-2 rounded-md'>
                       <BiSearch/>
                       <input
