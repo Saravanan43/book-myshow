@@ -87,7 +87,7 @@ const Navbar = () =>{
                  <div className="md:hidden">
                     <NavSm/>
                  </div>
-                  <div className="hidden md:flex lg:hidden"> /* hidden-hide sm device*/ 
+                  <div className="hidden md:flex lg:hidden"> {/* hidden-hide sm device*/} 
                       <NavMd/>
                       
                   </div>
